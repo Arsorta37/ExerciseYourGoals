@@ -1,2 +1,2 @@
 # ExerciseYourGoals
-Repositorio para hostear la web desde otros servicios gratuitos :3
+Web en desarrollo, no sé q estás haciendo en este repositorio ¯\_(ツ)_/¯
