@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi perfil | Exercise Your Goals</title>
+  <link rel="shortcut icon" href="sources/icono_mancuerna_blanco.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/navbar.css">
+  <link rel="stylesheet" href="CSS/perfil.css">
+</head>
+
+<body data-page="perfil">
+  <script src="JS/sesion.js"></script>
+  <div id="navbar"></div>
+  <script src="JS/navbar.js"></script>
+  <div id="log_in" style="display: none;"></div>
+  <script src="JS/log_in.js"></script>
+
+  <main id="contenido">
+
+    <!-- Sin sesión -->
+    <section id="perfil_sin_sesion" class="pf-vacio" hidden=true>
+      <h1>Inicia sesión para ver tu perfil</h1>
+      <p>Aquí podrás editar tus datos y cambiar tu contraseña.</p>
+      <button type="button" class="pf-boton pf-primario" onclick="mostrarLog_in()">Iniciar sesión</button>
+    </section>
+
+    <!-- Error al cargar -->
+    <section id="perfil_error" class="pf-vacio" hidden=true>
+      <h1>No pudimos cargar tu perfil</h1>
+      <p>Comprueba tu conexión e inténtalo de nuevo.</p>
+      <button type="button" class="pf-boton pf-primario" id="perfil_reintentar">Reintentar</button>
+    </section>
+
+    <!-- Con sesión -->
+    <div id="perfil_contenido" hidden=true>
+
+      <header class="pf-hero">
+        <div class="pf-avatar" id="perfil_avatar" aria-hidden="true"></div>
+        <div class="pf-hero-texto">
+          <h1 id="perfil_nombre"></h1>
+          <p id="perfil_correo"></p>
+          <div class="pf-chips" id="perfil_chips"></div>
+        </div>
+      </header>
+
+      <div class="pf-grid">
+
+        <!-- Datos personales -->
+        <section class="pf-card" aria-labelledby="pf_titulo_datos">
+          <h2 id="pf_titulo_datos">Tus datos</h2>
+          <p class="pf-ayuda">Nos sirven para ajustar las rutinas que te proponemos. Todo es opcional salvo el nombre.</p>
+
+          <form id="form_datos" novalidate>
+            <div class="campo">
+              <label for="pf_nombre">Nombre</label>
+              <input type="text" id="pf_nombre" maxlength="60" autocomplete="name">
+              <small class="mensaje-error" id="pf_nombre_error"></small>
+            </div>
+
+            <div class="pf-fila pf-fila-3">
+              <div class="campo">
+                <label for="pf_edad">Edad</label>
+                <input type="number" id="pf_edad" inputmode="numeric" min="10" max="100" step="1">
+                <small class="mensaje-error" id="pf_edad_error"></small>
+              </div>
+              <div class="campo">
+                <label for="pf_altura">Altura (cm)</label>
+                <input type="number" id="pf_altura" inputmode="numeric" min="100" max="250" step="1">
+                <small class="mensaje-error" id="pf_altura_error"></small>
+              </div>
+              <div class="campo">
+                <label for="pf_peso">Peso (kg)</label>
+                <input type="number" id="pf_peso" inputmode="decimal" min="30" max="300" step="0.1">
+                <small class="mensaje-error" id="pf_peso_error"></small>
+              </div>
+            </div>
+
+            <div class="pf-fila pf-fila-2">
+              <div class="campo">
+                <label for="pf_dificultad">Nivel</label>
+                <select id="pf_dificultad">
+                  <option value="">Sin indicar</option>
+                  <option value="1">1 · Principiante</option>
+                  <option value="2">2 · Básico</option>
+                  <option value="3">3 · Intermedio</option>
+                  <option value="4">4 · Avanzado</option>
+                  <option value="5">5 · Experto</option>
+                </select>
+                <small class="mensaje-error" id="pf_dificultad_error"></small>
+              </div>
+              <div class="campo">
+                <label for="pf_sesiones">Sesiones por semana</label>
+                <select id="pf_sesiones">
+                  <option value="">Sin indicar</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                </select>
+                <small class="mensaje-error" id="pf_sesiones_error"></small>
+              </div>
+            </div>
+
+            <div class="pf-acciones">
+              <button type="submit" class="pf-boton pf-primario" id="boton_guardar_datos" disabled>Guardar cambios</button>
+              <span class="pf-aviso" id="aviso_datos" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+        </section>
+
+        <div class="pf-columna">
+
+          <!-- Contraseña -->
+          <section class="pf-card" aria-labelledby="pf_titulo_clave">
+            <h2 id="pf_titulo_clave">Contraseña</h2>
+
+            <form id="form_clave" novalidate>
+              <div class="campo">
+                <label for="pf_clave_actual">Contraseña actual</label>
+                <input type="password" id="pf_clave_actual" autocomplete="current-password">
+                <small class="mensaje-error" id="pf_clave_actual_error"></small>
+              </div>
+              <div class="campo">
+                <label for="pf_clave_nueva">Nueva contraseña</label>
+                <input type="password" id="pf_clave_nueva" autocomplete="new-password" placeholder="Mínimo 8 caracteres">
+                <small class="mensaje-error" id="pf_clave_nueva_error"></small>
+              </div>
+              <div class="campo">
+                <label for="pf_clave_nueva2">Repite la nueva contraseña</label>
+                <input type="password" id="pf_clave_nueva2" autocomplete="new-password">
+                <small class="mensaje-error" id="pf_clave_nueva2_error"></small>
+              </div>
+
+              <label class="pf-check">
+                <input type="checkbox" id="pf_mostrar_claves">
+                <span>Mostrar contraseñas</span>
+              </label>
+
+              <div class="pf-acciones">
+                <button type="submit" class="pf-boton pf-secundario" id="boton_cambiar_clave">Cambiar contraseña</button>
+                <span class="pf-aviso" id="aviso_clave" role="status" aria-live="polite"></span>
+              </div>
+            </form>
+          </section>
+
+          <!-- Sesión -->
+          <section class="pf-card" aria-labelledby="pf_titulo_sesion">
+            <h2 id="pf_titulo_sesion">Sesión</h2>
+            <p class="pf-ayuda">Cierra la sesión en este dispositivo. Tus datos y rutinas se conservan.</p>
+            <button type="button" class="pf-boton pf-peligro" id="boton_logout">Cerrar sesión</button>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="JS/perfil.js"></script>
+</body>
+</html>

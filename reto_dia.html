@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rutina diaria | Exercise Your Goals</title>
+  <link rel="shortcut icon" href="sources/icono_mancuerna_blanco.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/navbar.css">
+  <link rel="stylesheet" href="CSS/reto_dia.css">
+</head>
+
+<body data-page="rutina_diaria">
+  <script src="JS/sesion.js"></script>
+  <div id="navbar"></div>
+  <script src="JS/navbar.js"></script>
+  <div id="log_in" style="display: none;"></div>
+  <script src="JS/log_in.js"></script>
+
+  <main id="contenido">
+    <header class="page-header">
+      <div>
+        <span class="eyebrow">ENTRENAMIENTO · HOY</span>
+        <h1>Tu reto diario</h1>
+        <p>Completa los ejercicios propuestos para avanzar en tu entrenamiento de hoy.</p>
+      </div>
+    </header>
+
+    <section id="reto_dia" aria-labelledby="titulo-reto">
+      <div class="challenge-main">
+        <div>
+          <span class="card-label">RETO DE HOY</span>
+          <h2 id="titulo-reto">¡Es hora de entrenar!</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <a id="racha" onclick="mostrarLog_in()" style="cursor: pointer;">Inicia sesión para ver tu racha</a>
+        </div>
+      </div>
+
+      <div class="challenge-progress">
+        <div class="progress-heading">
+          <span>Progreso de hoy</span>
+          <strong id="ejercicios_completados">0/6</strong>
+        </div>
+        <div class="progress-track" aria-label="Progreso del reto diario">
+          <span style="width: 0%"></span>
+        </div>
+        <small>Completa todos los ejercicios para terminar el reto.</small>
+      </div>
+    </section>
+
+    <section class="workout-layout">
+      <div class="exercise-column">
+        <div class="section-heading">
+          <div>
+            <h2>Ejercicios</h2>
+          </div>
+          <span class="exercise-count">6 ejercicios</span>
+        </div>
+
+        <div id="ejercicios_dia">
+          <article class="exercise-card">
+            <div class="exercise-number">01</div>
+            <div class="exercise-info">
+              <span>Ejercicio 1:</span>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <img src="sources/icono_mancuerna.png" alt="Ejercicio 1">
+          </article>
+
+          <article class="exercise-card">
+            <div class="exercise-number">02</div>
+            <div class="exercise-info">
+              <span>Ejercicio 2:</span>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <img src="sources/icono_mancuerna.png" alt="Ejercicio 2">
+          </article>
+
+          <article class="exercise-card">
+            <div class="exercise-number">03</div>
+            <div class="exercise-info">
+              <span>Ejercicio 3:</span>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <img src="sources/icono_mancuerna.png" alt="Ejercicio 3">
+          </article>
+
+          <article class="exercise-card">
+            <div class="exercise-number">04</div>
+            <div class="exercise-info">
+              <span>Ejercicio 4:</span>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <img src="sources/icono_mancuerna.png" alt="Ejercicio 4">
+          </article>
+
+          <article class="exercise-card">
+            <div class="exercise-number">05</div>
+            <div class="exercise-info">
+              <span>Ejercicio 5:</span>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <img src="sources/icono_mancuerna.png" alt="Ejercicio 5">
+          </article>
+
+          <article class="exercise-card">
+            <div class="exercise-number">06</div>
+            <div class="exercise-info">
+              <span>Ejercicio 6:</span>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <img src="sources/icono_mancuerna.png" alt="Ejercicio 6">
+          </article>
+        </div>
+      </div>
+
+      <aside id="musculos" aria-label="Músculos trabajados">
+        <div class="muscles-card">
+          <div class="section-heading compact">
+            <div>
+              <span class="eyebrow">VISUALIZACIÓN</span>
+              <h2>Músculos trabajados</h2>
+            </div>
+          </div>
+          <p class="muscles-description">Consulta las zonas musculares asociadas al entrenamiento.</p>
+          <div class="muscles-visuals">
+            <img id="musculos_front" src="sources/muscular_system_front.svg" alt="Sistema muscular frontal">
+            <img id="musculos_back" src="sources/muscular_system_back.svg" alt="Sistema muscular posterior">
+          </div>
+          <div class="muscle-legend">
+            <span><i></i> Vista frontal</span>
+            <span><i></i> Vista posterior</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="JS/reto_dia.js"></script>
+</body>
+</html>

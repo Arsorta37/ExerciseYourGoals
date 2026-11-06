@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progreso | Exercise Your Goals</title>
+  <link rel="shortcut icon" href="sources/icono_mancuerna_blanco.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/navbar.css">
+  <link rel="stylesheet" href="CSS/progreso.css">
+</head>
+<body data-page="progreso">
+  <script src="JS/sesion.js"></script>
+  <div id="navbar"></div>
+  <script src="JS/navbar.js"></script>
+  <div id="log_in" style="display: none;"></div>
+  <script src="JS/log_in.js"></script>
+  
+  <div class="app">
+    <!-- Main -->
+    <main class="main">
+      <div class="content">
+        <div class="heading">
+          <p>La constancia es lo que transforma el esfuerzo en resultados.</p>
+        </div>
+        <div class="dashboard-grid">
+          <section class="primary">
+            <!-- Today's workout -->
+            <article class="hero-card">
+              <div class="hero-content">
+                <div class="eyebrow">▣ &nbsp; ENTRENAMIENTO DE HOY</div>
+                <h2>Push</h2>
+                <p>Pecho, hombros y tríceps</p>
+                <div class="hero-meta">◷ 7 ejercicios <span>•</span> ~55 min</div>
+                <button class="primary-button" onclick="window.location.href='reto_dia.html'">Empezar entrenamiento <span>→</span></button>
+              </div>
+            </article>
+
+            <section class="section">
+              <div class="section-title">
+                <h2>Tu progreso</h2>
+              </div>
+
+              <div class="stats-grid">
+                <div class="stat-card">
+                  <div class="stat-icon blue">♧</div>
+                  <strong>24</strong>
+                  <span>entrenamientos</span>
+                  <small>↑ +8% <em>vs. mes anterior</em></small>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon orange">♨</div>
+                  <strong>8.420</strong>
+                  <span>kcal quemadas</span>
+                  <small>↑ +12% <em>vs. mes anterior</em></small>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon purple">◎</div>
+                  <strong>32,5 kg</strong>
+                  <span>press banca (máx.)</span>
+                  <small>↑ +2,5 kg <em>vs. mes anterior</em></small>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-icon green">◷</div>
+                  <strong>96 h</strong>
+                  <span>tiempo total</span>
+                  <small>↑ +14% <em>vs. mes anterior</em></small>
+                </div>
+              </div>
+            </section>
+
+            <!-- Week -->
+            <section class="week-card">
+              <div class="week-header">
+                <h2>Esta semana</h2>
+                <span>3/7 entrenamientos</span>
+              </div>
+              <div class="week-body">
+                <div class="days">
+                  <div><span>L</span><b class="done"></b></div>
+                  <div><span>M</span><b class="done"></b></div>
+                  <div><span>X</span><b class="done"></b></div>
+                  <div><span>J</span><b></b></div>
+                  <div><span>V</span><b></b></div>
+                  <div><span>S</span><b></b></div>
+                  <div><span>D</span><b></b></div>
+                </div>
+                <div class="progress-wrap">
+                  <div class="progress-bar"><i></i></div>
+                  <strong>43%</strong>
+                </div>
+              </div>
+            </section>
+
+            <!-- Recommended routines -->
+            <section class="section">
+              <div class="section-title">
+                <h2>Rutinas recomendadas para ti</h2>
+                <a href="#">Ver todas →</a>
+              </div>
+
+              <div class="routine-grid">
+                <article class="routine-card">
+                  <div class="routine-image image-one"></div>
+                  <div class="routine-body">
+                    <span class="tag">Fuerza</span>
+                    <h3>Full Body</h3>
+                    <p>Todo el cuerpo</p>
+                    <small>◷ 6 ejercicios &nbsp;•&nbsp; ~45 min</small>
+                    <button>Ver rutina</button>
+                  </div>
+                </article>
+
+                <article class="routine-card">
+                  <div class="routine-image image-two"></div>
+                  <div class="routine-body">
+                    <span class="tag">Hipertrofia</span>
+                    <h3>Upper / Lower</h3>
+                    <p>Tren superior / inferior</p>
+                    <small>◷ 8 ejercicios &nbsp;•&nbsp; ~60 min</small>
+                    <button>Ver rutina</button>
+                  </div>
+                </article>
+
+                <article class="routine-card">
+                  <div class="routine-image image-three"></div>
+                  <div class="routine-body">
+                    <span class="tag">Pérdida de grasa</span>
+                    <h3>HIIT Gym</h3>
+                    <p>Alta intensidad</p>
+                    <small>◷ 5 ejercicios &nbsp;•&nbsp; ~35 min</small>
+                    <button>Ver rutina</button>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <!-- Recent sessions -->
+            <section class="section">
+              <div class="section-title">
+                <h2>Tus últimas sesiones</h2>
+                <a href="#">Ver todas →</a>
+              </div>
+
+              <div class="sessions">
+                <div class="session-row session-head">
+                  <span>Fecha</span><span>Rutina</span><span>Tiempo</span><span>Volumen</span><span></span>
+                </div>
+                <div class="session-row">
+                  <span>Hoy, 12 abr</span><span><b class="session-dot red"></b> Push</span><span>54 min</span><span>12.450 kg</span><span>›</span>
+                </div>
+                <div class="session-row">
+                  <span>10 abr</span><span><b class="session-dot blue-dot"></b> Pull</span><span>58 min</span><span>10.320 kg</span><span>›</span>
+                </div>
+                <div class="session-row">
+                  <span>8 abr</span><span><b class="session-dot green-dot"></b> Legs</span><span>62 min</span><span>14.780 kg</span><span>›</span>
+                </div>
+              </div>
+            </section>
+          </section>
+
+          <!-- Right column -->
+          <aside class="right-column">
+            <article class="streak-card">
+              <h3>Tu racha</h3>
+              <div class="streak-number"><span>🔥</span> 38 <small>días<br>de constancia</small></div>
+              <div class="mini-week">
+                <div><b>L</b><i class="on"></i></div>
+                <div><b>M</b><i class="on"></i></div>
+                <div><b>X</b><i class="on"></i></div>
+                <div><b>J</b><i class="on"></i></div>
+                <div><b>V</b><i></i></div>
+                <div><b>S</b><i></i></div>
+                <div><b>D</b><i></i></div>
+              </div>
+              <p>¡Vas muy bien! Sigue así.</p>
+            </article>
+
+            <article class="side-card muscles-card">
+              <h3>Músculos más trabajados</h3>
+              <div class="body-placeholder">
+                <div class="body-figure">◯<br>◡<br>╳<br>╳</div>
+                <div class="body-figure back">◯<br>╲╱<br>╳<br>╳</div>
+              </div>
+              <ul class="legend">
+                <li><i class="dot lilac"></i>Pecho <b>28%</b></li>
+                <li><i class="dot blue"></i>Espalda <b>22%</b></li>
+                <li><i class="dot sky"></i>Piernas <b>18%</b></li>
+                <li><i class="dot light"></i>Hombros <b>12%</b></li>
+                <li><i class="dot grey"></i>Brazos <b>10%</b></li>
+                <li><i class="dot pale"></i>Otros <b>10%</b></li>
+              </ul>
+            </article>
+
+            <article class="side-card next-card">
+              <h3>Próximo entrenamiento</h3>
+              <div class="next-workout">
+                <div class="calendar-icon">▣</div>
+                <div>
+                  <strong>Push</strong>
+                  <span>Lunes, 14 abr · 55 min</span>
+                </div>
+                <b>→</b>
+              </div>
+            </article>
+
+            <article class="side-card record-card">
+              <h3>🏆 &nbsp;Tu récord personal</h3>
+              <strong>Press banca</strong>
+              <b>80 kg × 6 reps</b>
+              <small>12 mar 2025</small>
+              <span>→</span>
+            </article>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="JS/progreso.js"></script>
+</body>
+</html>

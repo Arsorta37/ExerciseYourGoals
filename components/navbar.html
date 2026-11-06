@@ -1,0 +1,84 @@
+<!-- components/navbar.html -->
+<div id="mobile_topbar">
+  <button id="hamburguesa" class="sidebar-toggle" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- El nombre y las iniciales los rellena navbar.js según la sesión -->
+  <div id="mobile_perfil" class="profile-link cargando" role="button" tabindex="0">
+    <div class="profile-info"><strong></strong></div>
+    <div class="profile-avatar"></div>
+  </div>
+</div>
+
+<aside id="sidebar" class="escondido">
+  <div class="sidebar-brand" id="home">
+    <div class="brand-mark">
+      <img src="sources/icono_mancuerna_blanco.png" style="width: 30px;">
+    </div>
+    <div class="brand-text">
+      <strong>Exercise</strong>
+      <span>Your Goals</span>
+    </div>
+  </div>
+
+  <nav id="nav_container" aria-label="Navegación principal">
+
+    <div class="nav-section-label">ENTRENAMIENTO</div>
+
+    <div class="nav-link" id="rutina_diaria">
+      <img src="sources/calendario-tick.png" class="nav-icon">
+      <p>Reto diario</p>
+    </div>
+
+    <div class="nav-link" id="mis_rutinas">
+      <img src="sources/guardado.png" class="nav-icon">
+      <p>Mis rutinas</p>
+    </div>
+
+    <div class="nav-link" id="progreso">
+      <img src="sources/estadisticas.png" class="nav-icon">
+      <p>Tu progreso</p>
+    </div>
+
+    <div class="nav-section-label nav-section-spaced">EXPLORAR</div>
+
+    <div class="nav-link" id="rutinas">
+      <img src="sources/brujula.png" class="nav-icon">
+      <p>Rutinas</p>
+    </div>
+
+    <div class="nav-link" id="ejercicios">
+      <img src="sources/mancuerna.png" class="nav-icon">
+      <p>Ejercicios</p>
+    </div>
+
+    <div class="nav-link" id="estadisticas">
+      <img src="sources/estadisticas-global.png" class="nav-icon">
+      <p>Estadísticas</p>
+    </div>
+
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="sidebar-tip">
+      <strong>Pequeños avances</strong>
+      <span>también son progreso.</span>
+      <i></i>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <div id="perfil" class="profile-link cargando" role="button" tabindex="0">
+      <div class="profile-avatar"></div>
+      <div class="profile-info">
+        <strong></strong>
+        <span></span>
+      </div>
+      <span class="profile-arrow">›</span>
+    </div>
+
+  </div>
+</aside>

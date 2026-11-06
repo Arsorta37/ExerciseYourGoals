@@ -1,0 +1,525 @@
+/* ---------- Configuración inicial de todas las páginas ---------- */
+
+:root {
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --text: #172033;
+  --muted: #788398;
+  --border: #e7ebf2;
+  --blue: #2778f4;
+  --green: #1fb879;
+  --orange: #ff8a35;
+  --purple: #7867e8;
+  --radius: 12px;
+  --success: #34b77a;
+  --shadow: 0 10px 30px rgba(24, 39, 61, .07);
+
+  --sidebar-bg: #101a2b;
+  --sidebar-bg-hover: #19283d;
+  --sidebar-active: #245b99;
+  --sidebar-text: #aeb9c9;
+  --sidebar-muted: #69788e;
+  --sidebar-white: #f8fbff;
+  --sidebar-border: #29384d;
+  --sidebar-accent: #3f8cf4;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.main {
+  width: 100%;
+  min-height: 100vh;
+}
+
+button, input {
+  font: inherit;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   SIDEBAR — Exercise Your Goals
+   Escritorio: sidebar fijo
+   Móvil: topbar fija + sidebar deslizante
+   ========================================================= */
+
+/* ---------- Sidebar escritorio ---------- */
+
+#sidebar {
+  position: fixed;
+  z-index: 100;
+  inset: 0 auto 0 0;
+
+  width: 230px;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 22px 12px;
+  box-sizing: border-box;
+
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+
+  font-family: "Inter", "Roboto", sans-serif;
+  box-shadow: 4px 0 20px rgba(12, 24, 40, .06);
+}
+
+/* ---------- Marca ---------- */
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  min-height: 42px;
+  padding: 0 9px;
+  margin-bottom: 34px;
+
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  border-radius: 8px;
+  background: #193a65;
+  color: #58a0ff;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-text strong {
+  color: var(--sidebar-white);
+  font-size: 20px;
+  letter-spacing: .2px;
+}
+
+.brand-text span {
+  margin-top: 3px;
+  color: #718198;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+}
+
+/* ---------- Navegación ---------- */
+
+#nav_container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+}
+
+.nav-section-label {
+  padding: 0 12px;
+  margin-bottom: 5px;
+
+  color: #596981;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.nav-section-spaced {
+  margin-top: 20px;
+}
+
+.nav-link {
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 0 12px;
+  border-radius: 7px;
+
+  color: var(--sidebar-text);
+  cursor: pointer;
+
+  transition:
+    background-color .18s ease,
+    color .18s ease,
+    transform .18s ease;
+}
+
+.nav-link:hover {
+  background: var(--sidebar-bg-hover);
+  color: var(--sidebar-white);
+}
+
+.nav-link.active {
+  background: var(--sidebar-active);
+  color: white;
+  box-shadow: 0 5px 12px rgba(36, 91, 153, .22);
+}
+
+.nav-icon {
+  width: 20px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  color: #91a3bb;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.nav-link.active .nav-icon {
+  color: #fff;
+}
+
+.nav-link p {
+  margin: 0;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ---------- Parte inferior ---------- */
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.sidebar-tip {
+  margin-top: auto;
+  padding: 0 12px 8px;
+
+  text-align: center;
+  color: #aeb9c9;
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.sidebar-tip strong,
+.sidebar-tip span {
+  display: block;
+}
+
+.sidebar-tip i {
+  width: 31px;
+  height: 2px;
+
+  display: block;
+  margin: 14px auto 0;
+
+  background: #5c9df5;
+}
+
+.sidebar-divider {
+  height: 1px;
+  margin: 14px 8px;
+  background: var(--sidebar-border);
+}
+
+/* ---------- Perfil ---------- */
+
+.profile-link {
+  min-height: 46px;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 0 8px;
+  border-radius: 7px;
+
+  cursor: pointer;
+  transition: background-color .18s ease;
+}
+
+.profile-link:hover {
+  background: var(--sidebar-bg-hover);
+}
+
+.profile-avatar {
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background: #dbe8f7;
+  color: #285486;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info strong {
+  color: #edf3fb;
+  font-size: 14px;
+}
+
+.profile-info span {
+  margin-top: 2px;
+  color: #6f7e93;
+  font-size: 10px;
+}
+
+.profile-arrow {
+  color: #63738a;
+  font-size: 30px;
+}
+
+/* =========================================================
+   BARRA SUPERIOR MÓVIL
+   ========================================================= */
+
+#mobile_topbar {
+  display: none;
+}
+
+#hamburguesa {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-content: center;
+
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+
+  background: var(--sidebar-bg);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(16, 26, 43, .16);
+}
+
+#hamburguesa span {
+  width: 18px;
+  height: 2px;
+
+  display: block;
+  margin: 3px auto;
+
+  border-radius: 2px;
+  background: white;
+
+  transition:
+    transform .2s ease,
+    opacity .2s ease;
+}
+
+#hamburguesa.is-open span:nth-child(1) {
+  transform: translateY(2px) rotate(-39deg);
+}
+
+#hamburguesa.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburguesa.is-open span:nth-child(3) {
+  transform: translateY(-3px) rotate(40deg);
+}
+
+#mobile_profile {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+  border-radius: 50%;
+
+  background: var(--sidebar-bg);
+  box-shadow: 0 4px 12px rgba(16, 26, 43, .16);
+}
+
+#mobile_profile .profile-avatar {
+  width: 32px;
+  height: 32px;
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 778px) {
+  body {
+    padding-left: 230px;
+  }
+}
+
+/* =========================================================
+   TABLET / MÓVIL
+   ========================================================= */
+
+@media (max-width: 777px) {
+
+  body {
+    padding-left: 0;
+    padding-top: 68px;
+  }
+
+  /* Barra siempre visible */
+  #mobile_topbar {
+    position: fixed;
+    z-index: 120;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 14px;
+    box-sizing: border-box;
+
+    background: var(--sidebar-bg);
+
+    backdrop-filter: blur(12px);
+  }
+
+  /* El aside se desplaza desde fuera hacia dentro */
+  #sidebar {
+    padding-top: 75px;
+    transform: translateX(-105%);
+    transition: transform .28s cubic-bezier(.22, .61, .36, 1);
+  }
+
+  /* El botón ya está fuera del aside */
+  #hamburguesa:hover {
+    background-color: var(--sidebar-bg-hover) !important;
+  }
+
+
+  
+  /* El perfil de escritorio ya no está dentro del menú */
+  #sidebar .sidebar-divider { display: none; }
+  #sidebar .profile-link { display: none; }
+}
+
+/* Móviles muy pequeños */
+@media (max-width: 380px) {
+  #mobile_topbar {
+    padding: 0 10px;
+  }
+
+  #sidebar {
+    width: min(280px, 86vw);
+  }
+}
+
+/* Deslizamiento al cargar la página */
+@view-transition { navigation: auto; }
+
+#sidebar { view-transition-name: navbar; }
+#mobile_topbar { view-transition-name: navbar; }
+
+/* El navbar se queda quieto */
+::view-transition-group(navbar),
+::view-transition-old(navbar),
+::view-transition-new(navbar) {
+  animation: none;
+}
+
+/* Solo el contenido se anima */
+::view-transition-old(root) { animation: .3s ease-in both salir; }
+::view-transition-new(root) { animation: .3s ease-out both entrar; }
+
+@keyframes salir  { to   { opacity: 0; transform: translateY(40px); } }
+@keyframes entrar { from { opacity: 0; transform: translateY(-40px); } }
+
+/* =========================================================
+   SESIÓN EN EL NAVBAR
+   ========================================================= */
+
+/* Oculto hasta saber si hay sesión (evita parpadeo de "Iniciar sesión") */
+.profile-link.cargando { visibility: hidden; }
+
+.profile-link { user-select: none; }
+.profile-link:focus-visible { outline: 2px solid var(--sidebar-accent); outline-offset: 2px; }
+
+/* Avatar cuando no hay sesión */
+.profile-avatar.anonimo {
+  background: #26364d;
+  color: #8fa3bd;
+}
+
+.profile-avatar svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Nombres largos: se cortan con "…" en vez de romper el layout */
+.profile-info strong,
+.profile-info span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Perfil de la barra superior móvil (el id real es mobile_perfil) */
+#mobile_perfil {
+  min-width: 0;
+  max-width: 65%;
+  justify-content: flex-end;
+}
+
+#mobile_perfil .profile-info {
+  flex: 0 1 auto;
+  text-align: right;
+}
+
+@media (max-width: 380px) {
+  #mobile_perfil .profile-info { display: none; }
+}
+
+/* Perfil resaltado cuando estás en perfil.html */
+.profile-link.active { background: var(--sidebar-bg-hover); }

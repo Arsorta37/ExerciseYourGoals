@@ -1,0 +1,397 @@
+/* =========================================================
+   CREAR CUENTA — Exercise Your Goals
+   ========================================================= */
+
+body[data-page="create_account"] #contenido {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+/* ---------- Tarjeta dividida en dos paneles ---------- */
+
+.ca-card {
+  width: 100%;
+  max-width: 960px;
+
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  overflow: hidden;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Panel izquierdo ---------- */
+
+.ca-aside {
+  display: flex;
+  flex-direction: column;
+  padding: 44px 36px;
+
+  color: var(--sidebar-white);
+  background: linear-gradient(160deg, #101a2b 0%, #193a65 100%);
+}
+
+.ca-aside h2 {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -.3px;
+}
+
+.ca-aside > p:not(.ca-frase) {
+  margin-top: 14px;
+  color: #b9c6d8;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.ca-beneficios {
+  list-style: none;
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ca-beneficios li {
+  position: relative;
+  padding-left: 30px;
+  color: #e3ebf6;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* Marca de verificación dibujada con CSS */
+.ca-beneficios li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(88, 160, 255, .22);
+}
+
+.ca-beneficios li::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  width: 5px;
+  height: 9px;
+  border: solid #8fc0ff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.ca-frase {
+  margin-top: auto;
+  padding-top: 32px;
+  color: #8fa3bd;
+  font-size: 13px;
+}
+
+/* ---------- Panel del formulario ---------- */
+
+.ca-form-wrap {
+  padding: 44px 40px;
+}
+
+.ca-form-wrap h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -.3px;
+}
+
+.ca-sub {
+  margin: 6px 0 26px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* ---------- Campos ---------- */
+
+#form_crear_cuenta .campo {
+  margin-bottom: 18px;
+}
+
+#form_crear_cuenta label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.opcional {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+#form_crear_cuenta input[type="text"],
+#form_crear_cuenta input[type="email"],
+#form_crear_cuenta input[type="password"],
+#form_crear_cuenta input[type="number"],
+#form_crear_cuenta select {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+
+  color: var(--text);
+  background: #fff;
+  border: 1px solid #d5dbe6;
+  border-radius: 10px;
+  outline: none;
+
+  font-size: 16px; /* evita el zoom en iOS */
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+#form_crear_cuenta input::placeholder { color: #a3adbd; }
+
+#form_crear_cuenta input:focus,
+#form_crear_cuenta select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(39, 120, 244, .18);
+}
+
+.campo-password { position: relative; }
+.campo-password input { padding-right: 48px !important; }
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+
+  color: #8a95a8;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+}
+
+.toggle-password:hover { color: var(--text); }
+.toggle-password:focus-visible { outline: 2px solid var(--blue); }
+.toggle-password .tachado { display: none; }
+.toggle-password.activo .tachado { display: block; }
+
+/* ---------- Mensajes y estados ---------- */
+
+.mensaje-error {
+  display: none;
+  margin-top: 6px;
+  color: #d93f3f;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.ayuda {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.campo.error .mensaje-error { display: block; }
+
+.campo.error input[type="text"],
+.campo.error input[type="email"],
+.campo.error input[type="password"] {
+  border-color: #e25a5a;
+}
+
+.campo.error input:focus {
+  box-shadow: 0 0 0 3px rgba(226, 90, 90, .18);
+}
+
+.campo.ok input[type="text"],
+.campo.ok input[type="email"],
+.campo.ok input[type="password"] {
+  border-color: var(--green);
+}
+
+/* ---------- Medidor de seguridad ---------- */
+
+.fuerza {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.fuerza span {
+  height: 4px;
+  border-radius: 4px;
+  background: var(--border);
+  transition: background-color .2s ease;
+}
+
+.fuerza[data-nivel="1"] span:nth-child(-n+1) { background: #e25a5a; }
+.fuerza[data-nivel="2"] span:nth-child(-n+2) { background: var(--orange); }
+.fuerza[data-nivel="3"] span:nth-child(-n+3) { background: #d9b72b; }
+.fuerza[data-nivel="4"] span                 { background: var(--green); }
+
+/* ---------- Checkbox ---------- */
+
+#form_crear_cuenta .check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+#form_crear_cuenta .check input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--blue);
+}
+
+/* ---------- Botón y enlaces ---------- */
+
+#boton_crear_cuenta {
+  width: 100%;
+  height: 48px;
+
+  color: #fff;
+  background: var(--blue);
+  border: 0;
+  border-radius: 10px;
+
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color .15s ease, opacity .15s ease;
+}
+
+#boton_crear_cuenta:hover:not(:disabled) { background: #1a66dc; }
+#boton_crear_cuenta:focus-visible { outline: 3px solid rgba(39, 120, 244, .35); outline-offset: 2px; }
+#boton_crear_cuenta:disabled { opacity: .55; cursor: default; }
+
+.ca-login {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.ca-login a {
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.ca-login a:hover { text-decoration: underline; }
+
+/* ---------- Mensaje de éxito ---------- */
+
+#ca_exito {
+  display: none;
+  margin-bottom: 16px;
+  padding: 11px 14px;
+
+  color: #14754c;
+  background: #e8f8f0;
+  border: 1px solid #b5e6cf;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+#ca_exito.visible { display: block; }
+
+#ca_exito.fallo {
+  color: #a82e2e;
+  background: #fdeeee;
+  border-color: #f2c0c0;
+}
+
+
+/* ---------- Datos opcionales ---------- */
+
+.datos-opcionales {
+  min-width: 0;
+  margin: 0 0 18px;
+  padding: 0;
+  border: 0;
+}
+
+.datos-opcionales legend {
+  padding: 0;
+  margin-bottom: 2px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.datos-opcionales > .ayuda {
+  margin: 0 0 12px;
+}
+
+.grid-opcional {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px 12px;
+}
+
+.grid-opcional .campo { margin-bottom: 0 !important; min-width: 0; }
+.c-tercio { grid-column: span 2; }
+.c-mitad  { grid-column: span 3; }
+
+.campo.error input[type="number"] { border-color: #e25a5a; }
+.campo.ok input[type="number"]    { border-color: var(--green); }
+
+@media (max-width: 480px) {
+  .grid-opcional { grid-template-columns: repeat(2, 1fr); }
+  .c-tercio, .c-mitad { grid-column: span 1; }
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* Tablet: una sola columna, el panel azul pasa a ser cabecera */
+@media (max-width: 860px) {
+  .ca-card {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+
+  .ca-aside { padding: 28px 28px 26px; }
+  .ca-aside h2 { font-size: 22px; }
+  .ca-aside > p:not(.ca-frase) { margin-top: 8px; font-size: 14px; }
+  .ca-beneficios,
+  .ca-frase { display: none; }
+
+  .ca-form-wrap { padding: 30px 28px 32px; }
+}
+
+/* Móvil: la barra superior fija ocupa 68px */
+@media (max-width: 777px) {
+  body[data-page="create_account"] #contenido {
+    min-height: calc(100vh - 68px);
+    align-items: flex-start;
+    padding: 20px 16px 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  body[data-page="create_account"] #contenido { padding: 12px 12px 28px; }
+
+  .ca-card { border-radius: 16px; }
+  .ca-aside { padding: 22px 20px; }
+  .ca-form-wrap { padding: 24px 20px 28px; }
+  .ca-form-wrap h1 { font-size: 24px; }
+}

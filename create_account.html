@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear cuenta | Exercise Your Goals</title>
+  <link rel="shortcut icon" href="sources/icono_mancuerna_blanco.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/navbar.css">
+  <link rel="stylesheet" href="CSS/create_account.css">
+</head>
+
+<body data-page="create_account">
+  <script src="JS/sesion.js"></script>
+  <div id="navbar"></div>
+  <script src="JS/navbar.js"></script>
+  <div id="log_in" style="display: none;"></div>
+  <script src="JS/log_in.js"></script>
+
+  <main id="contenido">
+    <section class="ca-card" aria-labelledby="ca_titulo">
+
+      <div class="ca-aside">
+        <h2>Entrena con un objetivo claro</h2>
+        <p>Crea tu cuenta gratis y deja que la web recuerde lo que has hecho.</p>
+        <ul class="ca-beneficios">
+          <li>Guarda tus rutinas favoritas</li>
+          <li>Sigue tu racha del reto diario</li>
+          <li>Consulta tu progreso semana a semana</li>
+        </ul>
+        <p class="ca-frase">Pequeños avances también son progreso.</p>
+      </div>
+
+      <div class="ca-form-wrap">
+        <h1 id="ca_titulo">Crear cuenta</h1>
+        <p class="ca-sub">Tardarás menos de un minuto.</p>
+
+        <form id="form_crear_cuenta" novalidate>
+
+          <div class="campo">
+            <label for="ca_nombre">Nombre</label>
+            <input type="text" id="ca_nombre" autocomplete="name" placeholder="Tu nombre" maxlength="60" aria-describedby="ca_nombre_error">
+            <small class="mensaje-error" id="ca_nombre_error"></small>
+          </div>
+
+          <div class="campo">
+            <label for="ca_email">Email</label>
+            <input type="email" id="ca_email" autocomplete="email" placeholder="tucorreo@ejemplo.com" aria-describedby="ca_email_error">
+            <small class="mensaje-error" id="ca_email_error"></small>
+          </div>
+
+          <div class="campo">
+            <label for="ca_contrasena">Contraseña</label>
+            <div class="campo-password">
+              <input type="password" id="ca_contrasena" autocomplete="new-password" placeholder="Mínimo 8 caracteres" aria-describedby="ca_contrasena_error ca_fuerza_texto">
+              <button type="button" class="toggle-password" data-target="ca_contrasena" aria-label="Mostrar contraseña" aria-pressed="false">
+                <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M8 14c3.6 0 6.4-3.1 7.6-4.9.5-.7.5-1.6 0-2.3C14.4 5.1 11.6 2 8 2 4.4 2 1.6 5.1.4 6.9c-.5.7-.5 1.6 0 2.2C1.6 10.9 4.4 14 8 14zm0-9c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3z" fill="currentColor" fill-rule="nonzero"></path>
+                  <line class="tachado" x1="2" y1="14" x2="14" y2="2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></line>
+                </svg>
+              </button>
+            </div>
+            <div class="fuerza" id="ca_fuerza" data-nivel="0" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <small class="ayuda" id="ca_fuerza_texto">Usa letras y números.</small>
+            <small class="mensaje-error" id="ca_contrasena_error"></small>
+          </div>
+
+          <div class="campo">
+            <label for="ca_contrasena2">Repite la contraseña</label>
+            <div class="campo-password">
+              <input type="password" id="ca_contrasena2" autocomplete="new-password" placeholder="Repite la contraseña" aria-describedby="ca_contrasena2_error">
+              <button type="button" class="toggle-password" data-target="ca_contrasena2" aria-label="Mostrar contraseña" aria-pressed="false">
+                <svg width="18" height="18" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M8 14c3.6 0 6.4-3.1 7.6-4.9.5-.7.5-1.6 0-2.3C14.4 5.1 11.6 2 8 2 4.4 2 1.6 5.1.4 6.9c-.5.7-.5 1.6 0 2.2C1.6 10.9 4.4 14 8 14zm0-9c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3z" fill="currentColor" fill-rule="nonzero"></path>
+                  <line class="tachado" x1="2" y1="14" x2="14" y2="2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></line>
+                </svg>
+              </button>
+            </div>
+            <small class="mensaje-error" id="ca_contrasena2_error"></small>
+          </div>
+
+          <!-- Datos opcionales: edad, altura, peso, dificultad y sesiones semanales -->
+          <fieldset class="datos-opcionales">
+            <legend>Sobre ti <span class="opcional">(opcional)</span></legend>
+            <p class="ayuda">Nos sirve para ajustar las rutinas que te proponemos.</p>
+
+            <div class="grid-opcional">
+              <div class="campo c-tercio">
+                <label for="ca_edad">Edad</label>
+                <input type="number" id="ca_edad" inputmode="numeric" min="10" max="100" step="1" placeholder="25" aria-describedby="ca_edad_error">
+                <small class="mensaje-error" id="ca_edad_error"></small>
+              </div>
+
+              <div class="campo c-tercio">
+                <label for="ca_altura">Altura (cm)</label>
+                <input type="number" id="ca_altura" inputmode="numeric" min="100" max="250" step="1" placeholder="170" aria-describedby="ca_altura_error">
+                <small class="mensaje-error" id="ca_altura_error"></small>
+              </div>
+
+              <div class="campo c-tercio">
+                <label for="ca_peso">Peso (kg)</label>
+                <input type="number" id="ca_peso" inputmode="decimal" min="30" max="300" step="0.1" placeholder="65" aria-describedby="ca_peso_error">
+                <small class="mensaje-error" id="ca_peso_error"></small>
+              </div>
+
+              <div class="campo c-mitad">
+                <label for="ca_dificultad">Nivel</label>
+                <select id="ca_dificultad">
+                  <option value="">Elige una opción</option>
+                  <option value="1">1 · Principiante</option>
+                  <option value="2">2 · Básico</option>
+                  <option value="3">3 · Intermedio</option>
+                  <option value="4">4 · Avanzado</option>
+                  <option value="5">5 · Experto</option>
+                </select>
+              </div>
+
+              <div class="campo c-mitad">
+                <label for="ca_sesiones">Sesiones por semana</label>
+                <select id="ca_sesiones">
+                  <option value="">Elige una opción</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="campo campo-check">
+            <label class="check">
+              <input type="checkbox" id="ca_terminos" aria-describedby="ca_terminos_error">
+              <span>Acepto los términos de uso y la política de privacidad.</span>
+            </label>
+            <small class="mensaje-error" id="ca_terminos_error"></small>
+          </div>
+
+          <div id="ca_exito" role="status" aria-live="polite"></div>
+
+          <button type="submit" id="boton_crear_cuenta">Crear cuenta</button>
+
+          <p class="ca-login">
+            ¿Ya tienes cuenta?
+            <a href="#" onclick="mostrarLog_in(); return false;">Inicia sesión</a>
+          </p>
+        </form>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="JS/create_account.js"></script>
+</body>
+</html>
