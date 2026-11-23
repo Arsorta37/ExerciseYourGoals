@@ -5,10 +5,13 @@ Por parte de la base de datos, solo se pueden tener 5 conexiones a la vez, lo qu
 
 # Probarlo en local
 1º Descargar el Dockerfile y ExerciseYourGoals.war en la misma carpeta.
-2º Ejecutad en la terminal dentro de la carpeta con los archivos los siguientes comandos:
+
+2º Pedirme la contraseña de la base de datos por correo, o crearla tú mismo
+
+3º Ejecutad en la terminal dentro de la carpeta con los archivos los siguientes comandos:
 
 docker build -t exerciseyourgoals .
 
 docker run -p 8080:8080 -e EYG_DB_URL="jdbc:postgresql://btsrbpsbagb3crcueyu1-postgresql.services.clever-cloud.com:50014/btsrbpsbagb3crcueyu1?currentSchema=eyg" -e EYG_DB_USER="uykvom2kujiqww6rrjet" -e EYG_DB_PASSWORD="TU_PASSWORD" exerciseyourgoals
 
-3º Abrir http://localhost:8080 en el navegador.
+4º Abrir http://localhost:8080 en el navegador.
