@@ -1,5 +1,5 @@
 # ExerciseYourGoals
-Web en desarrollo, no sé q estás haciendo en este repositorio ¯\\_(ツ)_/¯
+La base de datos está en Clever Cloud, y la web está hosteada en https://exerciseyourgoals.onrender.com/
 
 # Probarlo en local:
 docker build -t miweb .
