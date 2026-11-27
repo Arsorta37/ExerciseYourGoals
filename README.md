@@ -35,7 +35,7 @@ docker compose up -d --build web   # 3. levanta la web
 
 # Probarlo en local (conectándose a otra base de datos no local)
 
-### Para conectarte, primero tendrás que crear un archivo ".env.cloud" en la misma carpeta.
+### 1º Crear un archivo ".env.cloud" en la misma carpeta.
 En este archivo se definirán las variables de entorno. Para ello, modifica las siguientes variables sin dejar ningún espacio al rededor de los '=' y sin poner comillas a los valores:
 
 EYG_DB_URL=jdbc:postgresql://TU_HOST:PUERTO/TU_BD?currentSchema=eyg
@@ -45,13 +45,14 @@ EYG_DB_USER=tu_usuario
 EYG_DB_PASSWORD=tu_contraseña
 
 
-### Una vez creado ".env.cloud", la ejecución es igual que creando la base de datos localmente, pero cambiando el paso 3º por lo siguiente:
+### 2º La ejecución es igual que creando la base de datos localmente, pero cambiando el paso 3º por lo siguiente:
 
 docker compose -f compose.cloud.yaml up -d --build
 
 docker compose -f compose.cloud.yaml logs -f web
 
-### Poblar la base de datos no local borra todos los datos que estén originalmente, por lo que primero se tiene que confirmar que se está seguro, y para ello asignamos a la variable CONFIRMAR_SEED el valor "SI":
+### CUIDADO: Poblar la base de datos no local borra todos los datos que estén originalmente
+Por lo que hemos puesto un seguro con el que primero se tiene que confirmar que se está seguro al hacerlo en una BD no local. Para ello asignamos a la variable CONFIRMAR_SEED el valor "SI" en la terminal:
 
 $env:CONFIRMAR_SEED = "SI"
 
