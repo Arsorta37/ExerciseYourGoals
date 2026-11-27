@@ -1,5 +1,5 @@
 # ExerciseYourGoals
-Web creada para las prácticas de la asignatura Sistemas de información.
+Web creada para las prácticas de la asignatura Sistemas de información por Andrés Lorente Pérez y Andrés Llorente Ojuel.
 
 La base de datos está alojada en Clever Cloud, y la web está hosteada en https://exerciseyourgoals.onrender.com/
 
