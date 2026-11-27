@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    container_name: eyg-web
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.cloud

@@ -1,0 +1,52 @@
+services:
+  db:
+    image: postgres:17
+    container_name: eyg-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: eyg
+    volumes:
+      - pgdata_eyg:/var/lib/postgresql/data
+      - ./scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U postgres -d eyg"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  seed:
+    build: .
+    profiles: ["seed"]
+    environment:
+      EYG_DB_URL: jdbc:postgresql://db:5432/eyg?currentSchema=eyg
+      EYG_DB_USER: app_eyg
+      EYG_DB_PASSWORD: eyg_andreses
+    depends_on:
+      db:
+        condition: service_healthy
+    entrypoint:
+      - sh
+      - -c
+      - >
+        mkdir -p /tmp/app && cd /tmp/app &&
+        jar xf /usr/local/tomcat/webapps/ROOT.war &&
+        java -cp 'WEB-INF/classes:WEB-INF/lib/*' eygSeed.modeloSeed.BaseDatosSeed
+
+  web:
+    build: .
+    container_name: eyg-web
+    ports:
+      - "8080:8080"
+    environment:
+      EYG_DB_URL: jdbc:postgresql://db:5432/eyg?currentSchema=eyg
+      EYG_DB_USER: app_eyg
+      EYG_DB_PASSWORD: eyg_andreses
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata_eyg:
