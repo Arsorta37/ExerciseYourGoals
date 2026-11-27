@@ -6,9 +6,12 @@ Como en ambos servicios tengo la versión gratuita, la web se apaga a los 15min 
 Por parte de la base de datos, solo se pueden tener 5 conexiones a la vez, lo que hace que las rutinas tarden mucho en cargar.
 
 # Probarlo en local
-1º Descargar todo el repositorio y tener Docker Desktop iniciado.
+1º Descargar todo el repositorio.
 
-2º Abrir la carpeta del repositorio en la terminal y ejecutar lo siguiente (asegúrate de no estar usando el puerto 8080):
+2º Tener Docker Desktop instalado e iniciado. 
+(asegúrate de no estar usando el puerto 8080 con "docker compose down")
+
+3º Abrir la carpeta del repositorio en la terminal y ejecutar lo siguiente:
 
 docker compose up -d --build db    # 1. BD (ejecuta ddl.sql y roles.sql)
 
@@ -16,4 +19,6 @@ docker compose run --rm seed       # 2. puebla los datos
 
 docker compose up -d --build web   # 3. levanta la web
 
-3º Abrir http://localhost:8080 en el navegador.
+4º Abrir http://localhost:8080 en el navegador.
+
+5º Puedes iniciar sesión en la cuenta ADMIN con la contraseña "eyg_admin", con la que puedes crear más rutinas globales, ejercicios y administradores.
