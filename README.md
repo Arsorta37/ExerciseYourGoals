@@ -9,10 +9,10 @@ Por parte de la base de datos, solo se pueden tener 5 conexiones a la vez, lo qu
 # Probarlo en local
 ## 1º Descargar todo el repositorio.
 
-###### 2º Tener Docker Desktop instalado e iniciado. 
+### 2º Tener Docker Desktop instalado e iniciado. 
 (asegúrate de no estar usando el puerto 8080 con "docker compose down")
 
-## 3º Abrir la carpeta del repositorio en la terminal y ejecutar lo siguiente:
+#### 3º Abrir la carpeta del repositorio en la terminal y ejecutar lo siguiente:
 
 docker compose up -d --build db    # 1. BD (ejecuta ddl.sql y roles.sql)
 
