@@ -33,7 +33,7 @@ docker compose up -d --build web   # 3. levanta la web
 
 
 
-# Probarlo en local (conectándose a otra base de datos no local)
+# Probarlo conectándose a base de datos no local
 
 ### 1º Crear un archivo ".env.cloud" en la misma carpeta.
 En este archivo se definirán las variables de entorno. Para ello, modifica las siguientes variables sin dejar ningún espacio al rededor de los '=' y sin poner comillas a los valores:
