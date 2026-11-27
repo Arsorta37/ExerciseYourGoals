@@ -4,7 +4,7 @@ Web creada para las prácticas de la asignatura Sistemas de información.
 La base de datos está alojada en Clever Cloud, y la web está hosteada en https://exerciseyourgoals.onrender.com/
 
 Como en ambos servicios tengo la versión gratuita, la web se apaga a los 15min sin uso, por lo que la primera conexión puede tardar unos segundos.
-Por parte de la base de datos, solo se pueden tener 5 conexiones a la vez, lo que hace que las rutinas tarden mucho en cargar.
+Por parte de la base de datos, solo se pueden tener 5 conexiones a la vez, lo que hace que no se pueda usar por muchos usuarios simultaneamente.
 
 # Probarlo en local
 1º Descargar todo el repositorio.
