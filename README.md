@@ -34,6 +34,7 @@ docker compose up -d --build web   # 3. levanta la web
 
 
 # Probarlo conectándose a base de datos no local
+(seguir antes los dos primeros pasos de Probarlo en local)
 
 ### 1º Crear un archivo ".env.cloud" en la misma carpeta.
 En este archivo se definirán las variables de entorno. Para ello, modifica las siguientes variables sin dejar ningún espacio al rededor de los '=' y sin poner comillas a los valores:
@@ -45,7 +46,7 @@ EYG_DB_USER=tu_usuario
 EYG_DB_PASSWORD=tu_contraseña
 
 
-### 2º La ejecución es igual que creando la base de datos localmente, pero cambiando el paso 3º por lo siguiente:
+### 2º Abrir la carpeta del repositorio en la terminal y ejecutar lo siguiente:
 
 docker compose -f compose.cloud.yaml up -d --build
 
